@@ -9,4 +9,6 @@ public class User{
     private String phone;
     
     private ArrayList<Account> accounts;    
+
+    
 }
