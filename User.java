@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class User{
     private String name;
     private String email;
@@ -6,5 +8,5 @@ public class User{
     private String address;
     private String phone;
     
-    
+    private ArrayList<Account> accounts;    
 }

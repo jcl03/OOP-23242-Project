@@ -3,10 +3,13 @@ public class Account {
     private String accountNumber;
     private int balance;
 
-    private final Bank bank;
+    private Bank bank;
 
-    public Account(Bank bank){
+    public Account(Bank bank, String password, String accountNumber, int balance) {
         this.bank = bank;
+        this.password = password;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
     }
 
 }
