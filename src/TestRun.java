@@ -28,16 +28,11 @@ public class TestRun{
         users.get(0).addAccount(accounts.get(1));
         
 
-        //login
+        //login by user
+        /*
         String username = JOptionPane.showInputDialog("Enter username");
         String password = JOptionPane.showInputDialog("Enter password");
 
-
-        //tranfer 1.00 from account 1 to account 2
-        
-        /*
-                
-        
         User currentUser = null;
         for (User user : users) {
             if (user.getUserName().equals(username) && user.verifyPassword(password)) {
@@ -45,7 +40,37 @@ public class TestRun{
                 break;
             }
         }
-        """ */
+        */
+
+        //login acc
+        /*
+        String accountNumber = JOptionPane.showInputDialog("Enter account number");
+        String password = JOptionPane.showInputDialog("Enter password");
+        Account account = null;
+        for (Account acc : accounts) {
+            if (acc.getAccountNumber().equals(accountNumber) && acc.verifyPassword(password)) {
+                account = acc;
+                break;
+            }
+        }
+        if (account == null) {
+            System.out.println("Invalid account number or password");
+            return;
+        }
+        */
+
+        //withdraw
+
+
+
+
+        //withdraw
+        double amount = Double.parseDouble(JOptionPane.showInputDialog("Enter amount to withdraw"));
+        Withdrawal withdrawal = new Withdrawal(amount, accounts.get(0));
+        withdrawal.process();
+
+        
+
 
     }
 }

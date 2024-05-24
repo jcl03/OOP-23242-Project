@@ -1,7 +1,7 @@
 import java.time.LocalDateTime;
 
 public class Transaction {
-    private double amount;
+    protected double amount;
     private String transactionId;
     private static int nextTransactionId = 0;
     //datetime
