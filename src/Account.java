@@ -3,7 +3,7 @@ public class Account {
     private String accountNumber;
     private double balance;
 
-    private Bank bank;
+    private final Bank bank;
 
     public Account(Bank bank, String password, String accountNumber, double balance) {
         this.bank = bank;

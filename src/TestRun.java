@@ -25,7 +25,16 @@ public class TestRun{
         
 
         //login
+        String username = JOptionPane.showInputDialog("Enter username");
+        String password = JOptionPane.showInputDialog("Enter password");
 
+        User currentUser = null;
+        for (User user : users) {
+            if (user.getUserName().equals(username) && user.verifyPassword(password)) {
+                currentUser = user;
+                break;
+            }
+        }
 
     }
 }

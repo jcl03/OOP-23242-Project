@@ -1,7 +1,7 @@
 class Transfer extends Transaction {
   
-    private Account fromAccount;
-    private Account toAccount;
+    private final Account fromAccount;
+    private final Account toAccount;
   
     public Transfer(double amount, Account fromAccount, Account toAccount) {
       super(amount);

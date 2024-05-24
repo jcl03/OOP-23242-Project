@@ -1,6 +1,6 @@
 class Deposit extends Transaction {
   
-    private Account depositingAccount;
+    private final Account depositingAccount;
   
     public Deposit(double amount, Account depositingAccount) {
       super(amount);

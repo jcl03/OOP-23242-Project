@@ -1,5 +1,5 @@
 public class Withdrawal extends Transaction {
-    private Account account;
+    private final Account account;
     
     public Withdrawal(double amount, Account account) {
         super(amount);
