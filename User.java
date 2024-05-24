@@ -24,4 +24,14 @@ public class User{
         accounts.add(account);
     }
     
+    //get username
+    public String getUserName(){
+        return username;
+    }
+
+    //verify password
+    public boolean verifyPassword(String password){
+        return this.password.equals(password);
+    }
+
 }

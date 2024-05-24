@@ -1,11 +1,31 @@
+import javax.swing.*;
+import java.util.*;
+
 public class TestRun{
     public static void main(String[] args) {
-        Bank bank = new Bank("Bank A", "www.bankA.com", 123456);
-        User user = new User("John Doe", "j@email.conm", "password",
-                "johndoe", "123 Main St", "123-456-7890");
-        Account account = new Account(bank, "password", "123456", 100.0);
-        user.addAccount(account);
+        //arraylist of banks
+        ArrayList<Bank> banks = new ArrayList<Bank>();
+        //arraylist of users
+        ArrayList<User> users = new ArrayList<User>();
+        //ArrayList of accounts
+        ArrayList<Account> accounts = new ArrayList<Account>();
+
+        //add bank
+        banks.add(new Bank("Bank A", "www.bankA.com", 123456));
+        banks.add(new Bank("Bank B", "www.bankB.com", 654321));
+
+        //add user
+        users.add(new User("John Doe", "j@email.conm", "password",
+                "johndoe", "123 Main St", "123-456-7890"));
+
+        accounts.add(new Account(banks.get(0), "password", "123456", 100.0));
         
+        users.get(0).addAccount(accounts.get(0));
+
+        
+
+        //login
+
 
     }
 }
