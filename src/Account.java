@@ -2,14 +2,16 @@ public class Account {
     private String password;
     private String accountNumber;
     private double balance;
+    private int pin;
 
     private final Bank bank;
 
-    public Account(Bank bank, String password, String accountNumber, double balance) {
+    public Account(Bank bank, String password, String accountNumber, double balance, int pin) {
         this.bank = bank;
         this.password = password;
         this.accountNumber = accountNumber;
         this.balance = balance;
+        this.pin = pin;
     }
 
 
@@ -37,4 +39,6 @@ public class Account {
     public boolean verifyPassword(String password) {
         return this.password.equals(password);
     }
+
+    
 }
