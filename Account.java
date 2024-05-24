@@ -21,7 +21,7 @@ public class Account {
         return balance;
     }
 
-    public bool Withdrawal(double amount) {
+    public boolean withdraw(double amount) {
         if (balance < amount) {
             return false;
         }
@@ -29,8 +29,12 @@ public class Account {
         return true;
     }
 
-    public bool Deposit(double amount) {
+    public boolean deposit(double amount) {
         balance += amount;
         return true;
+    }
+
+    public boolean verifyPassword(String password) {
+        return this.password.equals(password);
     }
 }
