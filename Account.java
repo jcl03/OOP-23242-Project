@@ -21,5 +21,16 @@ public class Account {
         return balance;
     }
 
-    
+    public bool Withdrawal(double amount) {
+        if (balance < amount) {
+            return false;
+        }
+        balance -= amount;
+        return true;
+    }
+
+    public bool Deposit(double amount) {
+        balance += amount;
+        return true;
+    }
 }
