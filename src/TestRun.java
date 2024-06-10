@@ -23,6 +23,7 @@ public class TestRun{
                 "johndoe", "123 Main St", "123-456-7890"));
 
         accounts.add(new Account(banks.get(0), "123456", "1234567890", 100.00, 1234));
+        accounts.add(new Account(banks.get(1), "654321", "0987654321", 200.00, 4321));
        
         users.get(0).addAccount(accounts.get(0));
         users.get(0).addAccount(accounts.get(1));
