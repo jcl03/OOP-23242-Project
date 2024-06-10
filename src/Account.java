@@ -2,18 +2,16 @@ public class Account {
     private String password;
     private String accountNumber;
     private double balance;
-    private int pin;
-
+    private User user;
     private final Bank bank;
 
-    public Account(Bank bank, String password, String accountNumber, double balance, int pin) {
+    public Account(Bank bank, String password, String accountNumber, double balance, int pin, User user) {
         this.bank = bank;
         this.password = password;
         this.accountNumber = accountNumber;
         this.balance = balance;
-        this.pin = pin;
+        this.user = user;
     }
-
 
     public String getAccountNumber() {
         return accountNumber;
