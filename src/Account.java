@@ -37,6 +37,15 @@ public class Account {
     public boolean verifyPassword(String password) {
         return this.password.equals(password);
     }
-
     
+    @Override
+    public String toString() {
+        return "Account{" +
+                "password='" + password + '\'' +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", balance=" + balance +
+                ", user=" + user +
+                ", bank=" + bank +
+                '}';
+    }
 }
