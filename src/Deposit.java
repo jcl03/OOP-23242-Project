@@ -1,16 +1,13 @@
 class Deposit extends Transaction {
-  
-    private final Account depositingAccount;
-  
     public Deposit(double amount, Account depositingAccount) {
-      super(amount);
-      this.depositingAccount = depositingAccount;
+      super(amount, new Account[] { depositingAccount });
+      depositingAccount.deposit(amount);
     }
   
     @Override
     public String getTransactionDetails() {
       String details = super.getTransactionDetails();
-      details += ", Depositing Account: " + depositingAccount.getAccountNumber();
+      details += ", Depositing Account: " + account[0].getAccountNumber();
       return details;
     }
   }

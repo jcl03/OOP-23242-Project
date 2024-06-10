@@ -9,8 +9,18 @@ public class TransactionLog {
         transactions = new ArrayList<>();
     }
 
-    public void addTransaction(Transaction transaction) {
-        transactions.add(transaction);
+    public void addTransaction(int type, double amount, Account account, Account account2) {
+        switch (type) {
+            case 1:
+                transactions.add(new Deposit(amount, account));
+                break;
+            case 2:
+                transactions.add(new Withdrawal(amount, account));
+                break;
+            case 3:
+                transactions.add(new Transfer(amount, account, account2));
+                break;
+        }
     }
 
     public void printAllTransactions() {
