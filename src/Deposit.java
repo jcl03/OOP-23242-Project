@@ -5,8 +5,8 @@ class Deposit extends Transaction {
     }
   
     @Override
-    public String getTransactionDetails() {
-      String details = super.getTransactionDetails();
+    public String toString() {
+      String details = super.toString();
       details += ", Depositing Account: " + account[0].getAccountNumber();
       return details;
     }

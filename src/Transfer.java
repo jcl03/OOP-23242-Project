@@ -6,9 +6,9 @@ public class Transfer extends Transaction {
   }
 
   @Override
-  public String getTransactionDetails() {
-      String details = super.getTransactionDetails();
-      details += ", From: " + account[0].getAccountNumber() + ", To: " + account[1].getAccountNumber();
+  public String toString() {
+      String details = super.toString();
+      details += ", From Account: " + account[0].getAccountNumber() + ", To Account: " + account[1].getAccountNumber();
       return details;
   }
 }

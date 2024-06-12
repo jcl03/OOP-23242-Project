@@ -15,7 +15,9 @@ public class Transaction {
         this.account = account;
     }
 
-    public String getTransactionDetails() {
-        return "Transaction ID: " + transactionId + ", Amount: " + amount;
+    @Override
+    public String toString() {
+        //display check point
+        return "Transaction ID: " + transactionId + ", Amount: " + amount + ", Date: " + dateTime;
     }
 }

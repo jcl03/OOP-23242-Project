@@ -29,4 +29,9 @@ public class Bank {
     public void addAccount(Account account) {
         accounts.add(account);
     }
+
+    @Override
+    public String toString() {
+        return "Bank: " + name + ", Website: " + website + ", Hotline: " + hotline;
+    }
 }

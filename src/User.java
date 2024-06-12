@@ -34,4 +34,8 @@ public class User{
         return this.password.equals(password);
     }
 
+    @Override
+    public String toString(){
+        return name + " " + email + " " + username + " " + address + " " + phone;
+    }
 }

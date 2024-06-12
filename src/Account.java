@@ -1,19 +1,20 @@
 public class Account {
     private String password;
-    private String accountNumber;
+    private int accountNumber;
     private double balance;
     private User user;
+    private static int lastAccountNumber = 1000; 
     private final Bank bank;
 
-    public Account(Bank bank, String password, String accountNumber, double balance, int pin, User user) {
+    public Account(Bank bank, String password, double balance, User user) {
         this.bank = bank;
         this.password = password;
-        this.accountNumber = accountNumber;
+        this.accountNumber = lastAccountNumber++;
         this.balance = balance;
         this.user = user;
     }
 
-    public String getAccountNumber() {
+    public int getAccountNumber() {
         return accountNumber;
     }
 

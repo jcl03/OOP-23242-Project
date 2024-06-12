@@ -6,9 +6,9 @@ public class Withdrawal extends Transaction {
     }
     
     @Override
-    public String getTransactionDetails() {
-        String details = super.getTransactionDetails();
-        details += ", Withdrawing From: " + account[0].getAccountNumber();
+    public String toString() {
+        String details = super.toString();
+        details += ", Withdrawing Account: " + account[0].getAccountNumber();
         return details;
     }
 }

@@ -8,7 +8,17 @@ public class TransactionLog {
     public TransactionLog() {
         transactions = new ArrayList<>();
     }
+    public void addTransaction(int type, double amount, Account account) {
+        switch (type) {
+            case 1:
+                transactions.add(new Deposit(amount, account));
+                break;
+            case 2:
+                transactions.add(new Withdrawal(amount, account));
+                break;
+        }
 
+    }
     public void addTransaction(int type, double amount, Account account, Account account2) {
         switch (type) {
             case 1:
@@ -23,9 +33,12 @@ public class TransactionLog {
         }
     }
 
-    public void printAllTransactions() {
+    @Override
+    public String toString() {
+        String result = "";
         for (Transaction transaction : transactions) {
-            System.out.println(transaction.getTransactionDetails());
+            result += transaction + "\n";
         }
+        return result;
     }
 }
