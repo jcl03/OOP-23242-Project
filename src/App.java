@@ -1,4 +1,3 @@
-//import javax.swing.*;
 import java.util.*;
 import javax.swing.*;
 
@@ -13,20 +12,27 @@ public class App{
         //create transactionLog
         TransactionLog transactionLog = new TransactionLog();
 
-        //add bank
-        banks.add(new Bank("Bank A", "www.bankA.com", 123456));
-        banks.add(new Bank("Bank B", "www.bankB.com", 654321));
+        //add banks
+        banks.add(new Bank("Maybank", "www.Maybank.com.my", 123456));
+        banks.add(new Bank("Public Bank", "www.PublicBank.com.my", 654321));
+        banks.add(new Bank("CIMB", "www.CIMB.com.my", 987654));
 
         //add user
-        users.add(new User("John Doe", "j@email.conm", "password", "johndoe", "123 Main St", "123-456-7890"));
+        users.add(new User("Ail", "ali@gmail.conm", "123456", "AliAli", "Jalan UTM,Skudai,Johor", "011-5887890"));
+        users.add(new User("Loo", "loo@gmail.conm", "abcde", "LOOLOO", "Jalan UTHM,Batu Pahat,Johor", "010-7997890"));
+        users.add(new User("Tan", "tan@gmail.conm", "123abc", "TanTan", "Jalan Abb,Skudai,Johor", "012-5896890"));
 
-        accounts.add(new Account(banks.get(0), "123456", 100.00, users.get(0)));
-        accounts.add(new Account(banks.get(1), "654321", 200.00, users.get(0)));
+        //add accounts
+        accounts.add(new Account(banks.get(0), 100.00, users.get(0)));
+        accounts.add(new Account(banks.get(1), 200.00, users.get(0)));
+        accounts.add(new Account(banks.get(2), 300.00, users.get(1)));
+        accounts.add(new Account(banks.get(0), 400.00, users.get(2)));
        
+        //add accounts to users
         users.get(0).addAccount(accounts.get(0));
         users.get(0).addAccount(accounts.get(1));
-        
-
+        users.get(1).addAccount(accounts.get(2));
+        users.get(2).addAccount(accounts.get(3));
 
         boolean running = true;
         while(running){
@@ -74,11 +80,11 @@ public class App{
                                             JOptionPane.showMessageDialog(null, "Invalid bank name");
                                         }
                                     }
-                                    String accountNumber = JOptionPane.showInputDialog(null, "Enter account number");
-                                    double balance = Double.parseDouble(JOptionPane.showInputDialog(null, "Enter balance"));
-                                    Account account = new Account(userBank, accountNumber, balance, user);
+                                    Account account = new Account(userBank, 0, user);
                                     accounts.add(account);
                                     user.addAccount(account);
+                                    //display account info
+                                    JOptionPane.showMessageDialog(null, account);
                                     break;
                                 case 2:
                                     //deposit
@@ -112,8 +118,8 @@ public class App{
                                     break;
                                 case 4:
                                     //transfer
-                                    int accountNumber3 = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter account number"));
-                                    int accountNumber4 = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter account number"));
+                                    int accountNumber3 = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter account number (Tranfer from)"));
+                                    int accountNumber4 = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter account number (Transfer to)"));
                                     double amount2 = Double.parseDouble(JOptionPane.showInputDialog(null, "Enter amount"));
                                     Account account1 = null;
                                     Account account2 = null;
@@ -124,7 +130,7 @@ public class App{
                                         if(a.getAccountNumber() == accountNumber4){
                                             account2 = a;
                                             //display account info
-                                            JOptionPane.showMessageDialog(null, a);
+                                            JOptionPane.showMessageDialog(null, account2);
                                         }
                                     }
                                     if(account1 != null && account2 != null){
@@ -135,17 +141,24 @@ public class App{
                                             transactionLog.addTransaction(3, amount2, account1, account2);
                                         }
                                     }
-                                case 5:
-                                    //view account
-                                    int accountNumber5 = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter account number"));
-                                    for(Account a: accounts){
-                                        if(a.getAccountNumber() == accountNumber5){
-                                            JOptionPane.showMessageDialog(null, a);
-                                            break;
-                                        }
+                                    else if(account1 == null){
+                                        JOptionPane.showMessageDialog(null, "Account number " + accountNumber3 + " not found");
+                                    }
+                                    else{
+                                        JOptionPane.showMessageDialog(null, "Account number " + accountNumber4 + " not found");
                                     }
                                     break;
+                                case 5:
+                                    //show all accounts belonging to user
+                                    String accountList = "";
+                                    for(Account a: user.getAccounts()){
+                                        accountList += a + "\n";
+                                    }
+                                    JOptionPane.showMessageDialog(null, accountList);
+                                    break;
                                 case 6:
+                                    //show transaction log
+                                    JOptionPane.showMessageDialog(null, transactionLog);
                                     running1 = false;
                                     break;
                             }
@@ -187,10 +200,7 @@ public class App{
                     running = false;
                     break;
             }
-        }
-
-            
-                
+        }    
     }
 
     public static int displayMenu(){
@@ -207,7 +217,7 @@ public class App{
     }
 
     public static int displayMenu1(){
-        String menu = "1. Create Account\n2. Deposit\n3. Withdraw\n4. Transfer\n5. View Account\n6. Exit";
+        String menu = "1. Create Account\n2. Deposit\n3. Withdraw\n4. Transfer\n5. Show Accounts\n6. Exit";
         while(true){
             String input = JOptionPane.showInputDialog(null, menu);
             if(input.equals("1") || input.equals("2") || input.equals("3") || input.equals("4") || input.equals("5") || input.equals("6")){
@@ -229,6 +239,4 @@ public class App{
         }
         return null;
     }
-
-
 }
